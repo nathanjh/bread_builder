@@ -16,6 +16,7 @@ gem 'bcrypt'
 gem 'shotgun'
 gem 'pry'
 gem 'awesome_print'
+gem 'hirb'
 
 gem 'faker'
 
