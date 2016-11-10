@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username, :email
   validates :password, confirmation: { case_sensitive: false }
 
+  has_many :recipes_users
+  has_many :recipes, through: :recipes_users
+
   def password
     @password ||= BCrypt::Password.new(password_hash)
   end
@@ -14,11 +17,6 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  # can change params as needed
-  # feel free to refactor this
-  # def authenticate?(email, txt_password)
-  #   self.email == email && self.password == txt_password
-  # end
   def self.authenticate(email, password)
     @user = User.find_by_email(email)
     return @user if @user && @user.password == password
