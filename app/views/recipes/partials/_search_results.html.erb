@@ -1,0 +1,15 @@
+<div>
+  <% if @recipes.length >= 1 %>
+    <ul>
+      <% @recipes.each do |recipe| %>
+        <li>
+          <a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div>
+      <h2>Sorry!  No recipes matched your query...</h2>
+    </div>
+  <% end %>
+</div>

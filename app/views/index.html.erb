@@ -1,2 +1,12 @@
-<h1>HOME PAGE...</h1>
-<h1>HELLO WORLD</h1>
+<div>
+  <header>
+    <h1>BREAD BUILDER</h1>
+  </header>
+</div>
+<div id="query-interface">
+    <% if @recipes %>
+      <%= erb :'/recipes/partials/_search_results.html', layout: false %>
+    <% else %>
+      <%= erb :'/recipes/partials/_search_form.html', layout: false %>
+    <% end %>
+</div>
