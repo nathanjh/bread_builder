@@ -16,6 +16,18 @@ class Recipe < ActiveRecord::Base
     formula
   end
 
+  def ingredient_list
+    names = self.ingredient_names
+    quantites = self.ingredient_quantities
+    list = {}
+    names.each_with_index do |name, idx|
+      list[name] = quantites[idx]
+    end
+    list
+  end
+
+  private
+
   def total_flour
     flour_ingredients = self.ingredients.where('name LIKE (?)', '%flour%')
     weights = flour_ingredients.map do |ingredient|
