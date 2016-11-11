@@ -8,3 +8,12 @@ get '/recipes' do
     erb :'/index.html'
   end
 end
+
+# return a show page for recipe
+get '/recipes/:id' do
+  @user = current_user
+  @recipe = Recipe.find(params[:id])
+  @ingredients = @recipe.ingredients_recipes # array of ingredient-recipe relational objects
+  @bakers_formula = @recipe.bakers_formula # hash of ingredient names/percentages
+  erb :'/recipes/show.html'
+end

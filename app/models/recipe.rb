@@ -26,8 +26,6 @@ class Recipe < ActiveRecord::Base
     list
   end
 
-  private
-
   def total_flour
     flour_ingredients = self.ingredients.where('name LIKE (?)', '%flour%')
     weights = flour_ingredients.map do |ingredient|

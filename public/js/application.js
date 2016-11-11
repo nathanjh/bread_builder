@@ -1,5 +1,6 @@
 $(document).ready(function () {
   recipeSearch();
+  sliderLoader();
 });
 
 function recipeSearch() {
@@ -21,5 +22,17 @@ function recipeSearch() {
     .fail(function () {
       alert('Something went wrong!');
     });
+  });
+}
+
+function sliderLoader() {
+  $('.slider').slider({
+    max: 100,
+    min: 0,
+    orientation: 'vertical',
+    // value: parseInt($(this).attr('id')),
+    change: function (event, ui) {
+      $(this).parent().find('.percentage').html(ui.value + '%');
+    },
   });
 }
