@@ -41,6 +41,7 @@ recipes[1].ingredients_recipes.create!(ingredient_id: 7, quantity: 3)
 
 recipes[2].ingredients_recipes.create!(ingredient_id: 14, quantity: 30)
 recipes[2].ingredients_recipes.create!(ingredient_id: 3, quantity: 20)
+recipes[2].ingredients_recipes.create!(ingredient_id: 6, quantity: 10)
 recipes[2].ingredients_recipes.create!(ingredient_id: 4, quantity: 115)
 recipes[2].ingredients_recipes.create!(ingredient_id: 5, quantity: 435)
 recipes[2].ingredients_recipes.create!(ingredient_id: 1, quantity: 450)
