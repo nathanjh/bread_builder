@@ -6,14 +6,17 @@
 <div id="slider-box">
   <h2>Bakers Formula</h2>
   <% if @bakers_formula %>
+    <% i = 0 %>
     <form class="ingredient-mod" action="/recipes " method="post">
-      <% @bakers_formula.each do |name, percentage| %>
+    <% @bakers_formula.each do |name, percentage| %>
       <%= erb :'/recipes/partials/_ingredient_slider.html', layout: false, locals: { name: name, percentage: percentage }%>
+      <%= erb :'/recipes/partials/_ingredient_mod_input.html', layout: false, locals: { ingredient: @ingredients[i] } %>
+      <% i += 1 %>
     <% end %>
     </form>
   <% end %>
 </div>
 
-<% if @user %>
-
-<% end %>
+<div>
+  <p><%= add_breaks(@recipe.process) %></p>
+</div>

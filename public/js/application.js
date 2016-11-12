@@ -32,7 +32,9 @@ function sliderLoader() {
     orientation: 'vertical',
     // value: parseInt($(this).attr('id')),
     change: function (event, ui) {
+      var initialValue = $(this).parent().next().attr('value');
       $(this).parent().find('.percentage').html(ui.value + '%');
+      $(this).parent().next().attr('value', (ui.value * initialValue) / initialValue);
     },
   });
 }
